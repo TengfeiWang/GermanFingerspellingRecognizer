@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="MasterProject-Tengfei">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="MasterProject-Tengfei.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/forms-1.1.0.jar"/>
+        <pathelement location="lib/looks-2.1.4.jar"/>
+        <pathelement location="lib/TableLayout.jar"/>
+        <pathelement location="lib/LeapJava.jar"/>
+        <pathelement location="lib/libLeapJava.so"/>
+        <pathelement location="lib/libLeap.so"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="MasterProject-Tengfei.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target name="MainGUI">
+        <java classname="userInterface.MainGUI" failonerror="true" fork="yes">
+            <classpath refid="MasterProject-Tengfei.classpath"/>
+            <sysproperty key="java.library.path" value="/home/tengfei/thesis/LeapDeveloperKit_2.2.6+29154_linux/LeapSDK/lib/x86"/>
+        </java>
+    </target>
+    <target name="MainUI">
+        <java classname="userInterface.MainUI" failonerror="true" fork="yes">
+            <classpath refid="MasterProject-Tengfei.classpath"/>
+        </java>
+    </target>
+</project>

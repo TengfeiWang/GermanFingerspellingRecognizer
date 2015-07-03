@@ -192,12 +192,12 @@ public class RecordingGesture extends javax.swing.JDialog{
                         }
         		
                         while(!OS.isStarted && !OS.shouldBreak  && OS.leapConnected ){
-                            
+                             System.out.print("");
                         }
                         timerLabel.setText("Recording ……");
                         timerLabel.setForeground(Color.GREEN);
         		while(!OS.flag  && !OS.shouldBreak  && OS.leapConnected ){
-        			
+        		     System.out.print("");
         		}
         		dispose();
            

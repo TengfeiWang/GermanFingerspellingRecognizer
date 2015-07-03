@@ -114,13 +114,13 @@ public class RecognitionDataCollection extends javax.swing.JDialog {
         		task = new TimerManager(controller,OS,featureVectorUsed,true);
         		task.start();
                         while(!OS.isStarted && !OS.shouldBreak && OS.leapConnected ){
-                            
+                            System.out.print("");
                         }
                         timer.setText("Recording ……");
                         timer.setForeground(Color.GREEN);
        
         		while(!OS.flag  && !OS.shouldBreak && OS.leapConnected){
-        			
+        			 System.out.print("");
         		}
                         System.out.println("Recognition Sequence"+OS.observationSequence);
         		dispose();

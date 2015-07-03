@@ -14,7 +14,7 @@ import util.DataFileOperator;
 
 /**Athor:Tengfei Wang
  * This frame contains the already recorded data read
- * from the **.seq files from the "sequencedata" folder.
+ * from the **.seq files in the "sequencedata" folder.
  */
 
 public class ViewExamples extends javax.swing.JFrame {

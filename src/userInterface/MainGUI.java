@@ -148,7 +148,7 @@ public class MainGUI extends javax.swing.JFrame {
 	private JButton recognition;
 	private JPanel trainingPanel;
 	private JPanel recognitionPanel;
-        private String workDir = "C:\\GermanFingerSpellingRecognition_Workspace";
+        private String workDir = "GFRworkspace";
         public String leapVisualizerDir = "";
     private JButton startRecording;
     private int numExamples;
@@ -468,7 +468,13 @@ public class MainGUI extends javax.swing.JFrame {
 								//System.out.println("logMenu.actionPerformed, event="+evt);
 								//TODO add your code for logMenu.actionPerformed
 								try {
-									java.awt.Desktop.getDesktop().open(new File(workDir+"/logs/"));
+                                                                    if(GestureModelViewer.isWindows()){
+                                                                        java.awt.Desktop.getDesktop().open(new File(workDir+"/logs"));
+                                                                    }else{
+                                                                        Runtime.getRuntime().exec("nautilus "+workDir+"/logs");
+                                                                    }
+                                                             
+									
 								} catch (IOException e) {
 									// TODO Auto-generated catch block
 									e.printStackTrace();

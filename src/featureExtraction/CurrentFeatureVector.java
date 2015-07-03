@@ -103,7 +103,7 @@ public class CurrentFeatureVector extends javax.swing.JDialog {
 						    int isYes= JOptionPane.showConfirmDialog(null, "You have to delete model data before changing the feature vector!", "Info", JOptionPane.YES_NO_OPTION);
 			            	            if(isYes==JOptionPane.YES_OPTION){
 			          
-                                                            DataFileOperator fh = new DataFileOperator("hmmdata/");
+                                                            DataFileOperator fh = new DataFileOperator("GFRworkspace/hmmdata/");
                                                             fh.deletAll();
                                                             
                                                             recognition.setEnabled(false);

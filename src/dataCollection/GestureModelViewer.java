@@ -1,9 +1,11 @@
 package dataCollection;
+import java.awt.Desktop;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
@@ -207,17 +209,40 @@ public class GestureModelViewer extends javax.swing.JFrame {
 		try{
 			int selectedItem = list.getSelectedIndex();
 			if(isGesture == true){
-				Runtime.getRuntime().exec("cmd /c start notepad "+dir+names[selectedItem]+".seq");
+                           if (isWindows()){
+                               Runtime.getRuntime().exec("cmd /c start notepad "+dir+names[selectedItem]+".seq");
+                             
+                           }else{
+				 Runtime.getRuntime().exec("xdg-open "+dir+names[selectedItem]+".seq");
+                           }
 			}
 			else{
-				Runtime.getRuntime().exec("cmd /c start notepad "+dir+names[selectedItem]+".hmm");			
+                            if (isWindows()){
+				Runtime.getRuntime().exec("cmd /c start notepad "+dir+names[selectedItem]+".hmm");
+                            }else{
+                                Runtime.getRuntime().exec("xdg-open "+dir+names[selectedItem]+".hmm");
+                            }
+                           
 			}
 			
 		
 			}catch(Exception e2){
-				
+				e2.printStackTrace();
 			}
 		
 	}
+        
+        public static boolean isWindows() {
+             String os = System.getProperty("os.name").toLowerCase();
+	     return os.indexOf("windows") != -1 || os.indexOf("nt") != -1;
+        } 
+        public static boolean isMac() {
+	     String os = System.getProperty("os.name").toLowerCase();
+	     return os.indexOf("mac") != -1;
+        }
+        public static boolean isLinux() {
+	     String os = System.getProperty("os.name").toLowerCase();
+	     return os.indexOf("linux") != -1;
+        }
 
 }

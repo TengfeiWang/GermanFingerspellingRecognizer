@@ -60,7 +60,7 @@ public class DataFileOperator {
                       if(filePath!= null){
                           
                             isFolderChosen = true;
-                            new DataFileOperator("C:\\GermanFingerSpellingRecognition_Workspace"+"/sequencedata/").deletAll();
+                            new DataFileOperator("GFRworkspace"+"/sequencedata/").deletAll();
                             copyDirectiory(filePath, dir);
                             //read feature vector information from featurevector.txt
                             if(shouldChangeFV){
@@ -230,7 +230,7 @@ public class DataFileOperator {
                     int currentRowNumTop=0;
                     int currentRowNum = 0;
                     for(int i =0;i<exampleNum;i++){
-                            Reader reader = new FileReader ("C:\\GermanFingerSpellingRecognition_Workspace"+"/sequencedata/"+names[i]+".seq");
+                            Reader reader = new FileReader ("GFRworkspace"+"/sequencedata/"+names[i]+".seq");
                             List<List <ObservationVector >> seqs =  ObservationSequencesReader.readSequences (new ObservationVectorReader (),  reader);
                             for(int m= 0;m<seqs.size();m++){
                                  currentRowNumTop += seqs.get(m).size();

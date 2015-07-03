@@ -18,8 +18,9 @@ public class CreatWorkSpace {
           
     
     public CreatWorkSpace(String dirName){
-        
-        
+        if (new File("GFRworkspace").exists())
+        {System.out.println("workspace built complete...");}
+        else{
         new File(dirName).mkdir();
         System.out.println("Creating workspace in "+dirName+"......");
         new File(dirName+"/hmmdata").mkdir();
@@ -40,7 +41,7 @@ public class CreatWorkSpace {
         new File(dirName+"/backup/test").mkdir();
         System.out.println("Creating folder 'test' in 'backup' ......");
         System.out.println("workspace built complete...");
-        
+        }
        
     
     }

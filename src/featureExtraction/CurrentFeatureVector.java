@@ -22,19 +22,7 @@ import util.DataFileOperator;
 
 
 /**
-* This code was edited or generated using CloudGarden's Jigloo
-* SWT/Swing GUI Builder, which is free for non-commercial
-* use. If Jigloo is being used commercially (ie, by a corporation,
-* company or business for any purpose whatever) then you
-* should purchase a license for each developer using Jigloo.
-* Please visit www.cloudgarden.com for details.
-* Use of Jigloo implies acceptance of these licensing terms.
-* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR
-* THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
-* LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
-*/
-/**
- * 
+ * Shows the current feature vector the system is using.
  * @author WangTF
  *
  */
@@ -46,11 +34,11 @@ public class CurrentFeatureVector extends javax.swing.JDialog {
 	private JButton okButton;
 	private  List<Integer> featureVectorUsed;
 	private HashMap<Integer,String> allFeatureVector;
-    private JList fVectorList;
-    private DefaultListModel listModel = new DefaultListModel();
-    private JButton training;
-    private JButton recognition;
-    private JLabel infoLabel;
+        private JList fVectorList;
+        private DefaultListModel listModel = new DefaultListModel();
+        private JButton training;
+        private JButton recognition;
+        private JLabel infoLabel;
 	/**
 	* Auto-generated main method to display this JDialog
 	*/

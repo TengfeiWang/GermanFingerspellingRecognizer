@@ -19,6 +19,12 @@ import javax.swing.JTextArea;
 import util.DataFileOperator;
 import util.ObservationSequence;
 
+
+/**
+ * This class holds method to do an isolate recognition.
+ * @author tengfei
+ */
+
 public class GestureRecognition {
 	
 	private JTextArea dataAnalysis;

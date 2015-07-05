@@ -26,8 +26,8 @@ import javax.swing.WindowConstants;
 
 
 /**
- * 
- * @author WangTF
+ * A dialog where the user can modify the feature vector used to train an HMM.
+ * @author Tengfei Wang
  *
  */
 

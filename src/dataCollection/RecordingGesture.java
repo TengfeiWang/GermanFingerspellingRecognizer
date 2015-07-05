@@ -25,6 +25,7 @@ import java.awt.Color;
 
 
 /**
+ * This dialog instructs the user to perform a specific transition.
  * @author Tengfei Wang
 */
 public class RecordingGesture extends javax.swing.JDialog{

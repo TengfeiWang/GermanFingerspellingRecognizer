@@ -41,9 +41,5 @@
             <sysproperty key="java.library.path" value="/home/tengfei/thesis/LeapDeveloperKit_2.2.6+29154_linux/LeapSDK/lib/x86"/>
         </java>
     </target>
-    <target name="MainUI">
-        <java classname="userInterface.MainUI" failonerror="true" fork="yes">
-            <classpath refid="MasterProject-Tengfei.classpath"/>
-        </java>
-    </target>
+  
 </project>

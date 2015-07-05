@@ -9,7 +9,7 @@ package util;
 import java.io.File;
 
 /**
- *
+ * This class checks and creates work space when the project in launched.
  * @author Tengfei
  */
 public class CreatWorkSpace {

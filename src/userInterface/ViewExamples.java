@@ -12,8 +12,9 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import util.DataFileOperator;
 
-/**Athor:Tengfei Wang
- * This frame contains the already recorded data read
+/**
+ * @author Tengfei Wang
+ * This frame shows (in a table) the already recorded training data read
  * from the **.seq files in the "sequencedata" folder.
  */
 

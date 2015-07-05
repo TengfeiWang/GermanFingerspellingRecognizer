@@ -26,6 +26,10 @@ import be.ac.ulg.montefiore.run.jahmm.io.ObservationVectorReader;
  * 4.tableWriter reads the files in "sequencedata" folder and represents them in a table.
  */
 
+/**
+ * This class contains methods to do data files operation in the system.
+ * @author tengfei
+ */
 public class DataFileOperator {
 	
 	private String dir;
@@ -47,6 +51,11 @@ public class DataFileOperator {
 	}
 	
 	//import a folder to baseDir
+        /**
+         * 
+         * @param baseDir the default folder of the folder chooser.
+         * @return  true if one folder is chosen.
+         */
 	public boolean chooseFolder(String baseDir){
             boolean isFolderChosen = false;
             String filePath = null;
@@ -96,7 +105,12 @@ public class DataFileOperator {
 	}
 	
 	
-	
+	/**
+         * 
+         * @param sourceFile the folder where you want to copy from.
+         * @param targetFile the folder where you want to copy tp.
+         * @throws IOException 
+         */
 	public static void copyFile(File sourceFile,File targetFile) throws IOException{
 
 	    FileInputStream input = new FileInputStream(sourceFile);
@@ -146,7 +160,10 @@ public class DataFileOperator {
 	}
 
 	
-	//this function returns the number of files  in the folder "dir".
+	/**
+         * 
+         * @return the number of files in the folder.
+         */
 	public int getFileNum() {
         
 
@@ -157,6 +174,10 @@ public class DataFileOperator {
 
 	}
 	
+        
+        /**
+         * delete all filed in the folder.
+         */
 	public void deletAll(){
             File f=new File(dir);
             File temp = null;
@@ -169,6 +190,11 @@ public class DataFileOperator {
 	    }
 	}
 	
+        
+        /**
+         * 
+         * @param file name without extension 
+         */
 	public void deletByName(String name){
 		File f=new File(dir);
 		String[] str=f.list();
@@ -188,6 +214,11 @@ public class DataFileOperator {
 		
 	}
 	
+        
+        /**
+         * 
+         * @return an array of file name in the folder
+         */
 	public String[] getFileNames(){
 		
             File f=new File(dir);
@@ -198,6 +229,11 @@ public class DataFileOperator {
             return str;
 	}
 	
+        
+        /**
+         * read training sequences data and put the data in a table
+         * @return 
+         */
 	public String[][] tableWriter(){
                 String[][] columnData = null;
 		try{

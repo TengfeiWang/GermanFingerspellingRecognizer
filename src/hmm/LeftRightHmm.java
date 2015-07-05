@@ -1,4 +1,4 @@
-package util;
+package hmm;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +18,7 @@ import be.ac.ulg.montefiore.run.jahmm.OpdfFactory;
  * 
  * 
  * 
- * @author Behrooz Nobakht [bnobakht@liacs.nl]
+ * @author Behrooz Nobakht Tengfei Wang
  **/
 public class LeftRightHmm<O extends Observation> extends Hmm<O> {
 

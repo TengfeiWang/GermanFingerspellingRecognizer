@@ -10,6 +10,11 @@ import com.leapmotion.leap.Hand;
 import com.leapmotion.leap.HandList;
 import com.leapmotion.leap.Vector;
 
+
+/**
+ * This class defines methods to get a feature vector from a specific leap frame.
+ * @author tengfei
+ */
 public class FeatureExtractor {
 	
 	private Controller controller;
@@ -36,7 +41,11 @@ public class FeatureExtractor {
             return frame;
         }
 	
-
+        /**
+         * 
+         * @param previousFrame the previous frame returned from the leap.
+         * @return a double valued feature vector.
+         */
 	public double[] getFeatureVector(Frame previousFrame){
 		//this function returns an array with double real values which is a feature vector
            double[] result = new double[allFeatureVector.size()];

@@ -12,14 +12,19 @@ import java.util.HashMap;
 
 
 /**
- * 
+ * This class does the sequences segmentation.
  * 
  * 
  * @author Tengfei WANG
  **/
 public class SequencesProviderEntropyEstimation {
 
-
+       
+        /**
+        * @param states number of states 3
+        * @param seqs training sequences
+        * @return  3 groups of feature vectors corresponding each state used for GMM building.
+        */
 	public List<List<ObservationVector>> provide(int states, List<List<ObservationVector>> seqs) {
 	
             List<List<ObservationVector>> sequences = new ArrayList<List<ObservationVector>>();
@@ -135,6 +140,10 @@ public class SequencesProviderEntropyEstimation {
 	    return sequences;
 	}
         
+        
+       /**
+       * computer the entropy value of a group of feature vectors
+       **/
         private Double computeEntropy(List<ObservationVector> group){
             
             double entropy = 0.0;

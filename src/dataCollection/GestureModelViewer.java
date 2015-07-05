@@ -22,7 +22,8 @@ import util.DataFileOperator;
 
 
 /**
-* 
+* This class allows the user to view, change and delete the already recorded 
+* training sequences and the trained HMM.
 * @author Tengfei Wang
 */
 public class GestureModelViewer extends javax.swing.JFrame {

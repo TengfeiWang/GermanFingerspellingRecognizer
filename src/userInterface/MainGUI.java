@@ -69,11 +69,11 @@ import util.FindLeapHome;
 import util.ObservationSequence;
 import util.RecordingManager;
 
-
-
-/**ATHOR:Tengfei Wang
-*This is the main frame of the application
-*/
+/**
+ * This is where the system is started. 
+ * 
+ * @author tengfei
+ */
 public class MainGUI extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = 1L;

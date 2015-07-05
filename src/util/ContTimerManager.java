@@ -14,7 +14,7 @@ import util.HandDetector;
 /**
  * 
  * @author WangTF
- *this class defines a timer ,we run feature extraction every certain time(in ms)
+ *this class defines a timer, it can continuously return recognition sequences.
  */
 
 public class ContTimerManager {

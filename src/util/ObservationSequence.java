@@ -7,9 +7,9 @@ import java.util.List;
 import be.ac.ulg.montefiore.run.jahmm.ObservationVector;
 
 /**
- * 
+ * Define one observation sequence and some flag variables.
  * @author WangTF
- * This class contains several fields to store the recorded one feature vector
+ * 
  */
 
 public class ObservationSequence {

@@ -8,7 +8,7 @@ import be.ac.ulg.montefiore.run.jahmm.ObservationVector;
 
 
 /**
- * 
+ * Divide each sequence equally.
  * 
  * 
  * @author Tengfei WANG

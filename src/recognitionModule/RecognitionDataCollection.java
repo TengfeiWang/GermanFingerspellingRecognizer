@@ -20,7 +20,7 @@ import java.awt.Color;
 
 
 /**
- * 
+ * A pop up frame ask the user to perform a transition for recognition.
  * @author WangTF
  *
  */

@@ -17,6 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 import util.DataFileOperator;
 
+
+
+/**
+ * This class contains methods to do system evaluation.
+ * @author tengfei
+ */
 public class ModelsEvaluation {
         
     private List<Integer> featureVectorUsed;

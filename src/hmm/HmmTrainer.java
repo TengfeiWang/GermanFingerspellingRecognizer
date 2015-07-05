@@ -11,13 +11,12 @@ import be.ac.ulg.montefiore.run.jahmm.learn.BaumWelchLearner;
 import be.ac.ulg.montefiore.run.jahmm.learn.BaumWelchScaledLearner;
 import java.util.ArrayList;
 import java.util.List;
-import util.LeftRightHmm;
 import util.SequencesProvider;
 import util.SequencesProviderEntropyEstimation;
 
 /**
  * 
- * 
+ * This class contains methods to train an HMM.
  * 
  * @author Tengfei Wang
  **/

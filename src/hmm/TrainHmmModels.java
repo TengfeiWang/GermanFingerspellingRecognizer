@@ -29,12 +29,11 @@ import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 import userInterface.MainGUI;
 import util.DataFileOperator;
-import util.LeftRightHmm;
 
 /**
  * 
- * @author WangTF
- * This class contains methods to train all the recorded transitions and store the 
+ * @author Tengfei Wang
+ * This class contains methods to train all the recorded transitions and put the 
  * trained models in the "hmmdata" folder.
  */
 public class TrainHmmModels {

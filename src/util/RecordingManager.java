@@ -6,6 +6,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Define how many transitions in the HMM database.
+ * @author tengfei
+ */
+
 public class RecordingManager {
 	
 	private Map<String,String> gestureMap;
@@ -88,7 +93,11 @@ public class RecordingManager {
 
 	}
 	
-	
+	/**
+         * 
+         * @param dir the folder where the recorded training sequences are stored.
+         * @return unrecorded transitions.
+         */
 	public Map<String,String> unrecordedGesture(String dir){
 		 String[] names = new DataFileOperator(dir).getFileNames();
 		 for(int i =0;i< names.length;i++){
@@ -101,6 +110,12 @@ public class RecordingManager {
 		 return gestureMap;
 	}
         
+        
+        /**
+         * 
+         * @param dir the folder where the recorded training sequences are stored.
+         * @return  recorded transitions.
+         */
         public Map<String,String> recordedGesture(String dir){
             String[] names = new DataFileOperator(dir).getFileNames();
             Map<String,String> recordedGestureMap = new HashMap<String,String>();

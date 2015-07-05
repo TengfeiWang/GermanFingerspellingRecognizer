@@ -33,7 +33,7 @@ import userInterface.MainGUI;
 
 
 /**
- * 
+ * A pop up dialog, user have to specify the home of leap visualizer.
  * @author WangTF
  *
  */

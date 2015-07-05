@@ -39,6 +39,11 @@ import util.ObservationSequence;
 import util.TimerManager;
 
 
+
+/**
+ * continuous recognition panel.
+ * @author tengfei
+ */
 public class ContRecPanel extends javax.swing.JPanel {
 	private JPanel recording;
 	private JPanel result;

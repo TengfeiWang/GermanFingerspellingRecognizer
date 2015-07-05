@@ -6,16 +6,21 @@ import com.leapmotion.leap.Hand;
 import com.leapmotion.leap.Vector;
 
 /**@author:Tengfei Wang
- * This class contains 2 methods
- * 1.isStable returns true if the two hands in the same position and false otherwise
- * 2.sumOfDistance returns the change of position between two hands measured in mm.
+ * return hand parameters
  */
 
 public class HandDetector {
 	
+    
+        /**
+         * Judge if the hand is moved in two frames.
+         * @param hand1 hand object from frame 1.
+         * @param hand2 hand object from frame 2.
+         * @return true if hand is moved.
+         */
 	public boolean isStable(Hand hand1,Hand hand2){
 		
-		if(Math.abs(sumOfDistance(hand1)-sumOfDistance(hand1))==0.0){
+		if(Math.abs(sumOfDistance(hand1)-sumOfDistance(hand1))<0.5){
 			
 			return true;
 			
@@ -24,8 +29,14 @@ public class HandDetector {
 		
 	}
 	
+        
+        /**
+         * 
+         * @param hand
+         * @return hand paramenters
+         */
 	public double sumOfDistance(Hand hand){
-		 FingerList fingers = hand.fingers();
+	 FingerList fingers = hand.fingers();
          Vector handCenter = hand.palmPosition();
          double result= 0.0;
          //for(int i =0;i<5;i++){

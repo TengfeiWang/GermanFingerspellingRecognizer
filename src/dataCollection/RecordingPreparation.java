@@ -21,8 +21,8 @@ import util.ObservationSequence;
 import util.RecordingManager;
 
 /**
- *
- * @author Tengfei
+ * preparation for test sequences recording.
+ * @author Tengfei Wang
  */
 public class RecordingPreparation {
     

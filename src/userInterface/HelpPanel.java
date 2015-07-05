@@ -14,7 +14,7 @@ import javax.swing.WindowConstants;
 
 
 /**
- * 
+ * Shows help frame.
  * @author WangTF
  *
  */

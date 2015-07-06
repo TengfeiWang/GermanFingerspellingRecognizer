@@ -144,7 +144,7 @@ public class SequencesProviderEntropyEstimation {
        /**
        * computer the entropy value of a group of feature vectors
        **/
-        private Double computeEntropy(List<ObservationVector> group){
+        public static Double computeEntropy(List<ObservationVector> group){
             
             double entropy = 0.0;
             for(int i=0;i<group.get(0).dimension();i++){

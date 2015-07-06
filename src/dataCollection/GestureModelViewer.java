@@ -213,15 +213,19 @@ public class GestureModelViewer extends javax.swing.JFrame {
                            if (isWindows()){
                                Runtime.getRuntime().exec("cmd /c start notepad "+dir+names[selectedItem]+".seq");
                              
-                           }else{
+                           }else if(isLinux()){
 				 Runtime.getRuntime().exec("xdg-open "+dir+names[selectedItem]+".seq");
+                           }else{
+                               Runtime.getRuntime().exec("open -t "+dir+names[selectedItem]+".seq");
                            }
 			}
 			else{
                             if (isWindows()){
 				Runtime.getRuntime().exec("cmd /c start notepad "+dir+names[selectedItem]+".hmm");
-                            }else{
+                            }else if(isLinux()){
                                 Runtime.getRuntime().exec("xdg-open "+dir+names[selectedItem]+".hmm");
+                            }else{
+                                Runtime.getRuntime().exec("open -t "+dir+names[selectedItem]+".hmm");
                             }
                            
 			}

@@ -216,20 +216,24 @@ public class ContRecPanel extends javax.swing.JPanel {
                 startButton.setText("Please Perform");
             	startButton.setBackground(Color.ORANGE);
                 while(!OS.isStarted){
+                    System.out.print("");
+                    
                 }
         
             	while(controller.isConnected() && OS.shouldBreak == false&& OS.userBreak ==false ){
-            		
+            		System.out.print("");
             		startButton.setText("recording.......");
             		startButton.setBackground(Color.green);
 
         		while(controller.isConnected() && OS.shouldBreak == false&& OS.userBreak ==false&& OS.flag ==false ){
+                            System.out.print("");
         		}
         
                         OS.flag=false;
         		startButton.setText("pausing.......");
         		startButton.setBackground(Color.red);
         		while(!OS.isStarted && controller.isConnected() && OS.shouldBreak == false&& OS.userBreak ==false){
+                            System.out.print("");
                         }
     
         			//continue;
@@ -318,19 +322,20 @@ public class ContRecPanel extends javax.swing.JPanel {
 					e.printStackTrace();
 				}
             	while(recordedSeqs.isEmpty() && !recordingFinished){
-            		
+            		System.out.print("");
             	}
             
               while(!recordingFinished){
+                  System.out.print("");
              	  while(recognizedNum < recordedSeqs.size()){
             		  
                           //System.out.println("Computing"+recordedSeqs.size());
                           //System.out.println("@@@@@@@@@"+recordedSeqs.get(recognizedNum)+recognizedNum);
-                        
+                          System.out.print("");
             		  GestureRecognition gr = new GestureRecognition(recordedSeqs.get(recognizedNum),true,workDir,featureVectorUsed);
             		  gr.showResult();
             		  while(!gr.isFinished){
-            			  
+            			System.out.print("");  
             		  }
                         
             		  resultTextArea.append(gr.bestFitModel);

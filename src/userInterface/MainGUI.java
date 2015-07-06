@@ -470,8 +470,10 @@ public class MainGUI extends javax.swing.JFrame {
 								try {
                                                                     if(GestureModelViewer.isWindows()){
                                                                         java.awt.Desktop.getDesktop().open(new File(workDir+"/logs"));
-                                                                    }else{
+                                                                    }else if(GestureModelViewer.isLinux()){
                                                                         Runtime.getRuntime().exec("nautilus "+workDir+"/logs");
+                                                                    }else{
+                                                                        Runtime.getRuntime().exec("open "+workDir+"/logs");
                                                                     }
                                                              
 									

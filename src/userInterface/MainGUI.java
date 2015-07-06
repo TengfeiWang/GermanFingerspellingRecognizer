@@ -1028,8 +1028,8 @@ public class MainGUI extends javax.swing.JFrame {
             String label = o.getText();
             if(label=="2.Train"){
             	dataCollePanel.setVisible(false);
-            	//numExamples = new DataFileOperator(workDir+"/sequencedata/").getFileNum();
-            	//numofModels.setText(numExamples+"  models to be trained.");
+            	numExamples = new DataFileOperator(workDir+"/sequencedata/").getFileNum();
+            	numofModels.setText(numExamples+"  models to be trained.");
         	{
                     fVectorList.removeAll();
                     listModel.removeAllElements();

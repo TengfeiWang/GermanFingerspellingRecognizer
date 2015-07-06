@@ -1,5 +1,6 @@
 package util;
 
+import be.ac.ulg.montefiore.run.jahmm.ObservationVector;
 import com.leapmotion.leap.Bone;
 import com.leapmotion.leap.FingerList;
 import com.leapmotion.leap.Hand;
@@ -18,17 +19,43 @@ public class HandDetector {
          * @param hand2 hand object from frame 2.
          * @return true if hand is moved.
          */
-	public boolean isStable(Hand hand1,Hand hand2){
+	public static boolean isStable(Hand hand1,Hand hand2){
+	    
+            FingerList fingers1 = hand1.fingers();
+            FingerList fingers2 = hand2.fingers();
+            Vector hand1Center = hand1.palmPosition();	
+            Vector hand2Center = hand2.palmPosition();	
 		
-		if(Math.abs(sumOfDistance(hand1)-sumOfDistance(hand1))<0.5){
+            double difference= 0.0;
+            difference = hand1Center.distanceTo(hand2Center);
+            for(int i=1;i<5;i++){
+        	difference +=fingers1.get(0).tipPosition().distanceTo(fingers2.get(i).tipPosition());
+            }
+            
+            if(difference<0.5){
 			
 			return true;
 			
-		}
-		return false;
+            }
+            return false;
 		
 	}
-	
+
+    static boolean isStable(double[] previousFV, double[] featureVector) {
+       double difference =0.0;
+       for(int i=0;i<previousFV.length;i++){
+           difference += Math.abs(previousFV[i]-featureVector[i]);
+       }
+       System.out.println(difference);
+       if(difference <0.5){
+           return true;
+       }
+       return false;
+     
+    }
+
+  
+        
         
         /**
          * 

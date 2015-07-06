@@ -52,8 +52,8 @@ public class ContTimerManager {
 	  
 	  public  void start() {  
 		  
-			  timer.schedule(new RemindTask(), 0, 50); 
-			  threshold =2.0;
+			  timer.schedule(new RemindTask(), 0, 100); 
+			  threshold =3.0;
   
 	  }
 
@@ -92,7 +92,7 @@ public class ContTimerManager {
 		           }
 		           else if(currentHandParameterSum !=0.0 && previousHandParameterSum != 0.0){
                                
-                                   if(OS.isStarted ==false  && Math.abs(currentHandParameterSum-previousHandParameterSum)>20.0){//the start of a transition
+                                   if(OS.isStarted ==false  && Math.abs(currentHandParameterSum-previousHandParameterSum)>18.0){//the start of a transition
                                        OS.isStarted =true;
                                        //double[] featureVector =  fe.getFeatureVector(previousFrame);
 			 	       //observationVector = new ObservationVector(featureVector);
@@ -120,7 +120,7 @@ public class ContTimerManager {
 			 	               observationVector = new ObservationVector(featureVector);
 		            	               OS.observationSequence.add(observationVector);
 		            	               previousHandParameterSum = currentHandParameterSum;
-                                               previousFrame = currentFrame;
+                                               //previousFrame = currentFrame;
 		            	   
 		                        }
                                    }

@@ -16,9 +16,7 @@ import util.HandDetector;
 /**
  * 
  * @author WangTF
- *this class defines a timer, it runs feature extraction every certain time(in ms), and 
- * finally returns a sequence a feature vector (training sequence or recognition sequence)
- * corresponding to one transition.
+ *this class defines a timer ,we run feature extraction every certain time(in ms)
  */
 
 public class TimerManager {
@@ -60,7 +58,7 @@ public class TimerManager {
 			  threshold =3.0;
 			  
 		  }else{
-			  timer.schedule(new RemindTask(), 0, 10); 
+			  timer.schedule(new RemindTask(), 0, 5); 
 			  threshold = 0.3;
 		  }
 		  

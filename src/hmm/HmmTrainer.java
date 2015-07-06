@@ -24,7 +24,7 @@ public class HmmTrainer  {
 
 
 	/** N: number of states */
-	protected int N = 3;
+	protected int N = 5;
 
 	/** D: dimension used for multivariate Gaussian distributions */
 	protected int D ;
@@ -40,8 +40,8 @@ public class HmmTrainer  {
 
 	protected BaumWelchScaledLearner learner = new BaumWelchScaledLearner();
 	
-	//protected SequencesProvider dataSequenceProvider = new SequencesProvider();
-        protected SequencesProviderEntropyEstimation dataSequenceProvider = new SequencesProviderEntropyEstimation();
+	protected SequencesProvider dataSequenceProvider = new SequencesProvider();
+        //protected SequencesProviderEntropyEstimation dataSequenceProvider = new SequencesProviderEntropyEstimation();
 	protected List<List<ObservationVector>> sequences;
         protected List<Integer> featureVectorUsed;
 	public HmmTrainer(List<List<ObservationVector>> sequence,List<Integer> featureVectorUsed) {

@@ -58,7 +58,7 @@ public class TimerManager {
 			  threshold =3.0;
 			  
 		  }else{
-			  timer.schedule(new RemindTask(), 0, 5); 
+			  timer.schedule(new RemindTask(), 0, 10); 
 			  threshold = 0.3;
 		  }
 		  

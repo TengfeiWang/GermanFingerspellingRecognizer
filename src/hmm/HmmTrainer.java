@@ -24,7 +24,7 @@ public class HmmTrainer  {
 
 
 	/** N: number of states */
-	protected int N = 5;
+	protected int N = 4;
 
 	/** D: dimension used for multivariate Gaussian distributions */
 	protected int D ;
@@ -40,6 +40,7 @@ public class HmmTrainer  {
 
 	protected BaumWelchScaledLearner learner = new BaumWelchScaledLearner();
 	
+        
 	protected SequencesProvider dataSequenceProvider = new SequencesProvider();
         //protected SequencesProviderEntropyEstimation dataSequenceProvider = new SequencesProviderEntropyEstimation();
 	protected List<List<ObservationVector>> sequences;
@@ -69,9 +70,9 @@ public class HmmTrainer  {
 	}
 
 	protected LeftRightHmm<ObservationVector> initHmm(List<List<ObservationVector>> seqs, List<Opdf<ObservationVector>> opdfs) {
-		int total = getTotalNumberOfFtseSequence(seqs);
+		int averageSize = getAverageNumberOfSequenceSize(seqs);
 		LeftRightHmm<ObservationVector> hmm = new LeftRightHmm<ObservationVector>(N, delta, opdfs);
-		refineTransitions(hmm, total);
+		refineTransitions(hmm, averageSize);
 		return hmm;
 	}
 
@@ -88,6 +89,7 @@ public class HmmTrainer  {
 	public static void refineTransitions(Hmm<?> hmm, int sequenceSize) {//need modifications
 		double bucketSize = (double) sequenceSize / hmm.nbStates();
 		double p = 1. / bucketSize;
+                
 		for (int i = 0; i < hmm.nbStates(); ++i) {
 			if(i==hmm.nbStates()-1)
 			    hmm.setAij(i, i, 1 );
@@ -109,6 +111,14 @@ public class HmmTrainer  {
 		}
 		return size;
 	}
+        
+        private int getAverageNumberOfSequenceSize(List<List<ObservationVector>> seqs){
+              int size =0;
+              for (List<ObservationVector> list : seqs) {
+			size += list.size();
+	       }
+              return size/seqs.size();
+        }
 
 	public void setNumberOfStates(int states) {
 		this.N = states;

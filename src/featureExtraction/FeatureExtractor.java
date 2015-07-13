@@ -55,12 +55,25 @@ public class FeatureExtractor {
            HandList hands = frame.hands();
            Hand hand = hands.get(0);
            FingerList fingers = hand.fingers();
-           Vector handCenter = hand.palmPosition();
+           
+           
+           Vector handCenter = hand.palmPosition();// position of hand center
+           Vector palmNormal = hand.palmNormal();// direction out the serface of the hand
+           Vector palmDirection = hand.direction();//The direction from the palm position toward the fingers.
+           
            Vector thumbTipPosition = fingers.get(0).tipPosition();//tip position of thumb
            Vector indexTipPosition = fingers.get(1).tipPosition();//tip position of index finger
            Vector middleTipPosition = fingers.get(2).tipPosition();//tip position of middle finger
            Vector ringTipPosition = fingers.get(3).tipPosition();//tip position of ring finger
            Vector pinkyTipPosition = fingers.get(4).tipPosition();//tip position of little finger
+           
+           Vector thumbTipDirection = fingers.get(0).direction();// thumb tip direction
+           Vector indexTipDirection = fingers.get(1).direction();//index tip direction
+           Vector middleTipDirection = fingers.get(2).direction();//middle tip directin
+           Vector ringTipDirection = fingers.get(3).direction();//ring tip  direction
+           Vector pinkyTipDirection = fingers.get(4).direction();//pinky tip direction
+           
+           
            Vector indexBaseJoint = fingers.get(1).bone(Bone.Type.TYPE_PROXIMAL).prevJoint();//the base joint position of index finger
            Vector indexSecondJoint =fingers.get(1).bone(Bone.Type.TYPE_PROXIMAL).nextJoint();
            Vector middleBaseJoint = fingers.get(2).bone(Bone.Type.TYPE_PROXIMAL).prevJoint();//
@@ -74,16 +87,26 @@ public class FeatureExtractor {
      
          	/*allFeatureVector.put(1, "Thumb to Hand Center");
         	allFeatureVector.put(2, "Index to Hand Center");
-        	allFeatureVector.put(3, "Middle to Hand Center");
-        	allFeatureVector.put(4, "Ring to Hand Center");
-        	allFeatureVector.put(5, "Pinkey to Hand Center");
-        	allFeatureVector.put(6, "Thumb to Index");
-        	allFeatureVector.put(7, "Thumb to Middle");
-        	allFeatureVector.put(8, "Index to Middle");
-        	allFeatureVector.put(9, "Thumb to Ring");
-        	allFeatureVector.put(10,"Thumb to Pinky" );
-        	allFeatureVector.put(11,"Index Bending" );
-        	allFeatureVector.put(12,"Middle Bending" );*/
+                allFeatureVector.put(3, "Middle to hand center");
+                allFeatureVector.put(4, "Ring to hand center");
+                allFeatureVector.put(5, "Pinkey to Hand Center");
+        	allFeatureVector.put(6, "Extended finger count");
+           
+        	allFeatureVector.put(7, "Index Openness");
+        	
+        	allFeatureVector.put(8, "thumb index angle");
+        	allFeatureVector.put(9, "index middle angle");
+        	allFeatureVector.put(10, "middle ring angle");
+        	allFeatureVector.put(11, "ring pinky angke");
+        	allFeatureVector.put(12,"thumb palmnormal angle" );
+                allFeatureVector.put(13,"index palmnormal angle" );
+                allFeatureVector.put(14,"middle palmnormal angle" );
+                allFeatureVector.put(15,"ring palmnormal angle" );
+                allFeatureVector.put(16,"pinky palmnormal angle" );
+                allFeatureVector.put(17, "hand rotation angel");
+                allFeatureVector.put(18, "hand position change magnitude");
+                allFeatureVector.put(19 "dot product hand movement vector and first frame hand normal"):
+           */
     	   int counter=0;
            for(int i = 0; i<allFeatureVector.size();i++){
         	    if(allFeatureVector.get(i)==1){//Thumb to Hand Center
@@ -91,8 +114,8 @@ public class FeatureExtractor {
         	    	counter ++;
         		    continue;
         	    }
-        	    if(allFeatureVector.get(i)==2){//Index Finger Openness
-        	    	result[counter] = indexTipPosition.distanceTo(indexBaseJoint);
+        	    if(allFeatureVector.get(i)==2){//Index to Hand Center 
+        	    	result[counter] = indexTipPosition.distanceTo(handCenter);
         	    	counter ++;
         		    continue;
         	    }
@@ -111,44 +134,88 @@ public class FeatureExtractor {
         	    	counter ++;
         		    continue;
         	    }
-        	    if(allFeatureVector.get(i)==6){//Thumb to Index
+                    
+                     if(allFeatureVector.get(i)==6){//thumb to index
         	    	result[counter] = thumbTipPosition.distanceTo(indexTipPosition);
         	    	counter ++;
         		    continue;
         	    }
-        	    if(allFeatureVector.get(i)==7){//Thumb to Middle
-        	    	result[counter] = thumbTipPosition.distanceTo(middleSecondJoint);
-        	    	counter ++;
-        		    continue;
-        	    }
-        	    if(allFeatureVector.get(i)==8){//Index to Middle
+                      if(allFeatureVector.get(i)==7){//index to middle
         	    	result[counter] = indexTipPosition.distanceTo(middleTipPosition);
         	    	counter ++;
         		    continue;
         	    }
-        	    if(allFeatureVector.get(i)==9){//Thumb to Ring
-        	    	result[counter] = thumbTipPosition.distanceTo(ringSecondJoint);
-        	    	counter ++;
-        		    continue;
-        	    }
-        	    if(allFeatureVector.get(i)==10){//Thumb to Pinky
-        	    	result[counter] = thumbTipPosition.distanceTo(pinkyTipPosition);
-        	    	counter ++;
-        		    continue;
-        	    }
-        	    if(allFeatureVector.get(i)==11){//pinky to ring
-        	    	result[counter] = pinkyTipPosition.distanceTo(ringTipPosition);
-        	    	counter ++;
-        		    continue;
-        	    }
-        	    if(allFeatureVector.get(i)==12){//Middle to Ring
+                       if(allFeatureVector.get(i)==8){//middle to ring
         	    	result[counter] = middleTipPosition.distanceTo(ringTipPosition);
         	    	counter ++;
         		    continue;
+        	    } if(allFeatureVector.get(i)==9){//ring to pinky
+        	    	result[counter] = ringTipPosition.distanceTo(pinkyTipPosition);
+        	    	counter ++;
+        		    continue;
         	    }
-                    if(allFeatureVector.get(i)==13){//hand rotation angel
+                    
+                    
+                       
+                    
+        	    if(allFeatureVector.get(i)==10){//Extended fingers count
+        	    	result[counter] = fingers.extended().count();
+        	    	counter ++;
+        		    continue;
+        	    }
+                    if(allFeatureVector.get(i)==11){//Index Finger Openness
+        	    	result[counter] = indexTipPosition.distanceTo(indexBaseJoint);
+        	    	counter ++;
+        		    continue;
+        	    }
+                      if(allFeatureVector.get(i)==12){//thumb index angle
+        	    	result[counter] = (180/Math.PI)*thumbTipDirection.angleTo(indexTipDirection);
+        	    	counter ++;
+        		    continue;
+        	    }
+        	    if(allFeatureVector.get(i)==13){//index middle angle
+        	    	result[counter] = (180/Math.PI)*indexTipDirection.angleTo(middleTipDirection);
+        	    	counter ++;
+        		    continue;
+        	    }
+                      if(allFeatureVector.get(i)==14){//middle ring angle
+        	    	result[counter] = (180/Math.PI)*middleTipDirection.angleTo(ringTipDirection);
+        	    	counter ++;
+        		    continue;
+        	    }
+                      if(allFeatureVector.get(i)==15){//ring pinky angle
+        	    	result[counter] = (180/Math.PI)*ringTipDirection.angleTo(pinkyTipDirection);
+        	    	counter ++;
+        		    continue;
+        	    }
+                       if(allFeatureVector.get(i)==16){//thumb palmnormal angle
+        	    	result[counter] = (180/Math.PI)*thumbTipDirection.angleTo(palmNormal);
+        	    	counter ++;
+        		    continue;
+        	    }
+                        if(allFeatureVector.get(i)==17){//index palmnormal angle
+        	    	result[counter] = (180/Math.PI)*indexTipDirection.angleTo(palmNormal);
+        	    	counter ++;
+        		    continue;
+        	    }
+                         if(allFeatureVector.get(i)==18){//middle palmnormal angle
+        	    	result[counter] = (180/Math.PI)*middleTipDirection.angleTo(palmNormal);
+        	    	counter ++;
+        		    continue;
+        	    }
+                          if(allFeatureVector.get(i)==19){//ring palmnormal angle
+        	    	result[counter] = (180/Math.PI)*ringTipDirection.angleTo(palmNormal);
+        	    	counter ++;
+        		    continue;
+        	    }
+                           if(allFeatureVector.get(i)==20){//pinky palmnormal angle
+        	    	result[counter] = (180/Math.PI)*pinkyTipDirection.angleTo(palmNormal);
+        	    	counter ++;
+        		    continue;
+        	    }
+                    if(allFeatureVector.get(i)==21){//hand rotation angel
                             if(previousFrame!=null){
-                               result[counter] =  (100/Math.PI)*hand.rotationAngle(previousFrame);
+                               result[counter] =(180/Math.PI)* hand.rotationAngle(previousFrame);
                                
                             }else{
         	    	       result[counter] = 0.0;
@@ -156,9 +223,19 @@ public class FeatureExtractor {
         	    	    counter ++;
         		    continue;
         	    }
-                    if(allFeatureVector.get(i)==14){//hand position change
+                    if(allFeatureVector.get(i)==22){//hand position change magnitude
         	    	    if(previousFrame!=null){
                                result[counter] =  handCenter.distanceTo(previousFrame.hands().get(0).palmPosition());
+                               
+                            }else{
+        	    	       result[counter] = 0.0;
+                            }
+        	    	    counter ++;
+        		    continue;
+        	    }
+                       if(allFeatureVector.get(i)==23){//dot product hand movement vector and first frame hand normal
+        	    	    if(previousFrame!=null){
+                               result[counter] =  thumbTipPosition.distanceTo(indexTipPosition);
                                
                             }else{
         	    	       result[counter] = 0.0;

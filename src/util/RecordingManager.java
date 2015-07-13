@@ -19,7 +19,7 @@ public class RecordingManager {
 		
 		gestureMap = new HashMap<String,String>();
              
-		gestureMap.put("AB", "B");gestureMap.put("HD", "D");gestureMap.put("NT", "T");gestureMap.put("TO", "O");
+		/*gestureMap.put("AB", "B");gestureMap.put("HD", "D");gestureMap.put("NT", "T");gestureMap.put("TO", "O");
 		gestureMap.put("AC", "C");gestureMap.put("HE", "E");gestureMap.put("NU", "U");gestureMap.put("TR", "R");
 		gestureMap.put("AD", "D");gestureMap.put("HI", "I");gestureMap.put("NV", "V");gestureMap.put("TS", "S");
 	        gestureMap.put("AE", "E");
@@ -45,7 +45,7 @@ public class RecordingManager {
 		                          gestureMap.put("IM", "M");gestureMap.put("RD", "D");gestureMap.put("WE", "E");
 		gestureMap.put("CH", "H");gestureMap.put("IN", "N");gestureMap.put("RE", "E");gestureMap.put("WI", "I");
 		gestureMap.put("CK", "K");gestureMap.put("IO", "O");gestureMap.put("RF", "F");gestureMap.put("WO", "O");
-		gestureMap.put("DA", "A");gestureMap.put("IR", "R");/*gestureMap.put("RG", "G");*///gestureMap.put("ZE", "E");
+		gestureMap.put("DA", "A");gestureMap.put("IR", "R");//gestureMap.put("RG", "G");//gestureMap.put("ZE", "E");
 		gestureMap.put("DD", "D");
 		gestureMap.put("DE", "E");gestureMap.put("IS", "S");gestureMap.put("RH", "H");//gestureMap.put("ZI", "I");
 		gestureMap.put("DI", "I");gestureMap.put("IT", "T");gestureMap.put("RI", "I");//gestureMap.put("ZU", "U");
@@ -58,7 +58,7 @@ public class RecordingManager {
 		gestureMap.put("EE", "E");
 		gestureMap.put("EF", "F");gestureMap.put("KT", "T");gestureMap.put("RS", "S");
 		gestureMap.put("EG", "G");gestureMap.put("LA", "A");gestureMap.put("RT", "T");
-		gestureMap.put("EH", "H");gestureMap.put("LD", "D");/*gestureMap.put("RU", "U");*/
+		gestureMap.put("EH", "H");gestureMap.put("LD", "D");//gestureMap.put("RU", "U");
 		gestureMap.put("EI", "I");gestureMap.put("LE", "E");gestureMap.put("RV", "V");
 		gestureMap.put("EK", "K");gestureMap.put("LI", "I");gestureMap.put("RW", "W");
 		gestureMap.put("EL", "L");//gestureMap.put("LL", "L");
@@ -73,7 +73,7 @@ public class RecordingManager {
 		gestureMap.put("EW", "W");gestureMap.put("MI", "I");gestureMap.put("SE", "E");
 		
 		gestureMap.put("EZ", "Z");//gestureMap.put("MM", "M");
-		gestureMap.put("FA", "A");gestureMap.put("MU", "U");/*gestureMap.put("SG", "G");*/
+		gestureMap.put("FA", "A");gestureMap.put("MU", "U");//gestureMap.put("SG", "G");
 		gestureMap.put("FE", "E");gestureMap.put("NA", "A");gestureMap.put("SI", "I");
 		gestureMap.put("FO", "O");gestureMap.put("NB", "B");gestureMap.put("SO", "O");
 		gestureMap.put("FR", "R");gestureMap.put("ND", "D");//gestureMap.put("SP", "P");
@@ -81,16 +81,16 @@ public class RecordingManager {
 		gestureMap.put("FUE", "UE");
 		gestureMap.put("GA", "A");gestureMap.put("NF", "F");gestureMap.put("ST", "T");
 		gestureMap.put("GD", "D");gestureMap.put("NG", "G");gestureMap.put("SU", "U");
-		/*gestureMap.put("GE", "E");*/gestureMap.put("NH", "H");gestureMap.put("SW", "W");
+		//gestureMap.put("GE", "E");gestureMap.put("NH", "H");gestureMap.put("SW", "W");
 		gestureMap.put("GI", "I");gestureMap.put("NI", "I");gestureMap.put("TA", "A");
 		gestureMap.put("GL", "L");gestureMap.put("NK", "K");gestureMap.put("TD", "D");
 		gestureMap.put("GR", "R");gestureMap.put("NL", "L");gestureMap.put("TE", "E");
-		/*gestureMap.put("GS", "S");*/gestureMap.put("NM", "M");gestureMap.put("TH", "H");
+		//gestureMap.put("GS", "S");//gestureMap.put("NM", "M");gestureMap.put("TH", "H");
 		gestureMap.put("GT", "T");///gestureMap.put("NN", "N");
 		gestureMap.put("GU", "U");gestureMap.put("NO", "O");gestureMap.put("TI", "I");
-		gestureMap.put("HA", "A");gestureMap.put("NS", "S");gestureMap.put("TL", "L");
-	
-
+		gestureMap.put("HA", "A");gestureMap.put("NS", "S");gestureMap.put("TL", "L");*/
+                gestureMap.put("EN", "N");gestureMap.put("ER", "R");gestureMap.put("CH", "H");
+                gestureMap.put("DE", "E");gestureMap.put("EI", "I");
 	}
 	
 	/**

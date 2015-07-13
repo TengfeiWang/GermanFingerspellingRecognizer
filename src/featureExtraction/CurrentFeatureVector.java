@@ -40,7 +40,7 @@ public class CurrentFeatureVector extends javax.swing.JDialog {
         private JButton recognition;
         private JLabel infoLabel;
 	/**
-	* Auto-generated main method to display this JDialog
+	* Auto-generated main menullthod to display this JDialog
 	*/
 		
 	public CurrentFeatureVector(List<Integer> featureVectorUsed,HashMap<Integer,String> allFeatureVector,JButton training,JButton recognition,JLabel infoLabel) {

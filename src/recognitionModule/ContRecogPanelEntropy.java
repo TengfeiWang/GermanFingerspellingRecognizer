@@ -33,7 +33,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
-import recognitionModule.GestureRecognition;
+import recognitionModule.TransitionRecognition;
 import util.ContTimerManager;
 import util.ContTimerManagerEntropy;
 import util.ObservationSequence;
@@ -282,7 +282,7 @@ public class ContRecogPanelEntropy extends javax.swing.JPanel {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-        		  GestureRecognition gr = new GestureRecognition(recordedSeqs.get(recognizedNum),true);
+        		  TransitionRecognition gr = new TransitionRecognition(recordedSeqs.get(recognizedNum),true);
         		  gr.showResult();
         		  while(!gr.isFinished){
         			  
@@ -323,7 +323,7 @@ public class ContRecogPanelEntropy extends javax.swing.JPanel {
                           //System.out.println("Computing"+recordedSeqs.size());
                           //System.out.println("@@@@@@@@@"+recordedSeqs.get(recognizedNum)+recognizedNum);
                         
-            		  GestureRecognition gr = new GestureRecognition(recordedSeqs.get(recognizedNum),true,workDir,featureVectorUsed);
+            		  TransitionRecognition gr = new TransitionRecognition(recordedSeqs.get(recognizedNum),true,workDir,featureVectorUsed);
             		  gr.showResult();
             		  while(!gr.isFinished){
             			  

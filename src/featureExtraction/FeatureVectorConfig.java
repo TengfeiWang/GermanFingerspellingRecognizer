@@ -44,20 +44,33 @@ public class FeatureVectorConfig extends javax.swing.JDialog {
         private JPanel infoLabelPanel;
         private JPanel currentFVPanel;
         private JLabel currentFVLabel;
-	private JCheckBox thumbHandCenter;
+	private JCheckBox thumbHandCenter;       
 	private JCheckBox indexHandCenter;
 	private JCheckBox middleHandCenter;
-	private JCheckBox indexMiddle;	
-	private JCheckBox middletoRing;
-	private JCheckBox pinkytoRing;
-	private JCheckBox thumbPinky;
-	private JCheckBox thumbRing;
-	private JCheckBox thumbMiddle;
-	private JCheckBox thumbIndex;
-	private JCheckBox pinkyHandCenter;
-	private JCheckBox ringHandCenter;
+        private JCheckBox ringHandCenter;
+        private JCheckBox pinkyHandCenter;
+        
+        private JCheckBox thumbIndex;
+        private JCheckBox indexMiddle;
+        private JCheckBox middleRing;
+        private JCheckBox ringPinky;
+        
+        private JCheckBox fingerCount;
+	private JCheckBox indexOpenness;
+        
+	private JCheckBox thumbIndexAngle;
+	private JCheckBox indexMiddleAngle;
+	private JCheckBox middleRingAngle;
+	private JCheckBox ringPinkyAngle;
+	private JCheckBox thumbPalmNormal;
+	private JCheckBox indexPalmNormal;
+	private JCheckBox middlePalmNormal;
+        private JCheckBox ringPalmNormal;
+        private JCheckBox pinkyPalmNormal;
+	
         private JCheckBox handRotationAngel;
         private JCheckBox handTranslation;
+        private JCheckBox dotProduct;
         private JButton okButton;
         private JButton remainButton;
 	private HashMap<Integer,String> allFeatureVector = new HashMap<Integer,String>();
@@ -104,6 +117,27 @@ public class FeatureVectorConfig extends javax.swing.JDialog {
                         secondPanel.add(Box.createVerticalStrut(10));
                         secondPanel.add(checkBoxScrollPane);
                         secondPanel.add(Box.createVerticalStrut(10));
+                        /*allFeatureVector.put(1, "Thumb to Hand Center");
+                        allFeatureVector.put(2, "Index to Hand Center");
+                        allFeatureVector.put(3, "Middle to hand center");
+                        allFeatureVector.put(4, "Ring to hand center");
+                        allFeatureVector.put(5, "Pinkey to Hand Center");
+                        allFeatureVector.put(6, "Extended finger count");
+
+                        allFeatureVector.put(7, "Index Openness");
+
+                        allFeatureVector.put(8, "thumb index angle");
+                        allFeatureVector.put(9, "index middle angle");
+                        allFeatureVector.put(10, "middle ring angle");
+                        allFeatureVector.put(11, "ring pinky angke");
+                        allFeatureVector.put(12,"thumb palmnormal angle" );
+                        allFeatureVector.put(13,"index palmnormal angle" );
+                        allFeatureVector.put(14,"middle palmnormal angle" );
+                        allFeatureVector.put(15,"ring palmnormal angle" );
+                        allFeatureVector.put(16,"pinky palmnormal angle" );
+                        allFeatureVector.put(17, "hand rotation angel");
+                        allFeatureVector.put(18, "hand position change magnitude");
+                        allFeatureVector.put(19 "dot product hand movement vector and first frame hand normal"):*/
 			{
 				thumbHandCenter = new JCheckBox();
 				checkBoxPane.add(thumbHandCenter);
@@ -112,7 +146,7 @@ public class FeatureVectorConfig extends javax.swing.JDialog {
 			{
 				indexHandCenter = new JCheckBox();
 				checkBoxPane.add(indexHandCenter);
-				indexHandCenter.setText("Index Finger Openness[2]");
+				indexHandCenter.setText("Index to Hand Center[2]");
 			}
 			{
 				middleHandCenter = new JCheckBox();
@@ -129,51 +163,101 @@ public class FeatureVectorConfig extends javax.swing.JDialog {
 				checkBoxPane.add(pinkyHandCenter);
 				pinkyHandCenter.setText("Pinkey to Hand Center[5]");
 			}
-			{
+                        {
 				thumbIndex = new JCheckBox();
 				checkBoxPane.add(thumbIndex);
 				thumbIndex.setText("Thumb to Index[6]");
 			}
-			{
-				thumbMiddle = new JCheckBox();
-				checkBoxPane.add(thumbMiddle);
-				thumbMiddle.setText("Thumb to Middle[7]");
-			}
-			{
+                        {
 				indexMiddle = new JCheckBox();
 				checkBoxPane.add(indexMiddle);
-				indexMiddle.setText("Index to Middle[8]");
+				indexMiddle.setText("Index to Middle[7]");
+			}
+                        {
+				middleRing = new JCheckBox();
+				checkBoxPane.add(middleRing);
+				middleRing.setText("Middle to Ring[8]");
+			}
+                        {
+				ringPinky = new JCheckBox();
+				checkBoxPane.add(ringPinky);
+				ringPinky.setText("Ring to Pinky[9]");
+			}
+                        
+                        
+                        
+                        
+                        
+                        {
+                                fingerCount = new JCheckBox();
+				checkBoxPane.add(fingerCount);
+				fingerCount.setText("Extended Fingers Count[10]");
 			}
 			{
-				thumbRing = new JCheckBox();
-				checkBoxPane.add(thumbRing);
-				thumbRing.setText("Thumb to Ring[9]");
+				indexOpenness = new JCheckBox();
+				checkBoxPane.add(indexOpenness);
+				indexOpenness.setText("Index Finger Openness[11]");
 			}
 			{
-				thumbPinky = new JCheckBox();
-				checkBoxPane.add(thumbPinky);
-				thumbPinky.setText("Thumb to Pinky[10]");
+				thumbIndexAngle = new JCheckBox();
+				checkBoxPane.add(thumbIndexAngle);
+				thumbIndexAngle.setText("Thumb Index Angle[12]");
 			}
 			{
-				pinkytoRing = new JCheckBox();
-				checkBoxPane.add(pinkytoRing);
-				pinkytoRing.setText("Pinky to Ring[11]");
+				indexMiddleAngle = new JCheckBox();
+				checkBoxPane.add(indexMiddleAngle);
+				indexMiddleAngle.setText("Index Middle Angle[13]");
 			}
 			{
-				middletoRing = new JCheckBox();
-				checkBoxPane.add(middletoRing);
-				middletoRing.setText("Middle to Ring[12]");
+				middleRingAngle = new JCheckBox();
+				checkBoxPane.add(middleRingAngle);
+				middleRingAngle.setText("Middle Ring Angle[14]");
+			}
+			{
+				ringPinkyAngle = new JCheckBox();
+				checkBoxPane.add(ringPinkyAngle);
+				ringPinkyAngle.setText("Ring Pinky Angle[15]");
+			}
+			{
+				thumbPalmNormal = new JCheckBox();
+				checkBoxPane.add(thumbPalmNormal);
+				thumbPalmNormal.setText("Thumb Palmnormal Angle[16]");
+			}
+			{
+				indexPalmNormal = new JCheckBox();
+				checkBoxPane.add(indexPalmNormal);
+				indexPalmNormal.setText("Index Palmnormal Angle[17]");
+			}
+                        {
+				middlePalmNormal = new JCheckBox();
+				checkBoxPane.add(middlePalmNormal);
+				middlePalmNormal.setText("Middle Palmnormal Angle[18]");
+			}
+                        {
+				ringPalmNormal = new JCheckBox();
+				checkBoxPane.add(ringPalmNormal);
+				ringPalmNormal.setText("Ring Palmnormal Angle[19]");
+			}
+                        {
+				pinkyPalmNormal = new JCheckBox();
+				checkBoxPane.add(pinkyPalmNormal);
+				pinkyPalmNormal.setText("Pinky Palmnormal Angle[20]");
 			}
                         {
 				handRotationAngel = new JCheckBox();
 				checkBoxPane.add(handRotationAngel);
-				handRotationAngel.setText("Hand Rotation Angel[13]");
+				handRotationAngel.setText("Hand Rotation Angel[21]");
 			}
                         {
 				handTranslation = new JCheckBox();
 				checkBoxPane.add(handTranslation);
-				handTranslation.setText("Hand Position Change[14]");
+				handTranslation.setText("Hand Position Change[22]");
 			}
+                        {
+                                dotProduct = new JCheckBox();
+                                checkBoxPane.add(dotProduct);
+                                dotProduct.setText("Dot Product[23] ");
+                        }
 			{
                                 buttonPanel = new JPanel();
 			
@@ -255,40 +339,77 @@ public class FeatureVectorConfig extends javax.swing.JDialog {
 			featureSelected.add(5);
 			counter++;
 		}
-		if(thumbIndex.isSelected()){
+                if(thumbIndex.isSelected()){
 			featureSelected.add(6);
 			counter++;
 		}
-		if(thumbMiddle.isSelected()){
+                if(indexMiddle.isSelected()){
 			featureSelected.add(7);
 			counter++;
 		}
-		if(indexMiddle.isSelected()){
+                if(middleRing.isSelected()){
 			featureSelected.add(8);
 			counter++;
 		}
-		if(thumbRing.isSelected()){
+                if(ringPinky.isSelected()){
 			featureSelected.add(9);
 			counter++;
 		}
-		if(thumbPinky.isSelected()){
+                
+		if(fingerCount.isSelected()){
 			featureSelected.add(10);
 			counter++;
 		}
-		if(pinkytoRing.isSelected()){
+		if(indexOpenness.isSelected()){
 			featureSelected.add(11);
 			counter++;
 		}
-		if(middletoRing.isSelected()){
+		if(thumbIndexAngle.isSelected()){
 			featureSelected.add(12);
 			counter++;
 		}
-                if(handRotationAngel.isSelected()){
+		if(indexMiddleAngle.isSelected()){
 			featureSelected.add(13);
 			counter++;
 		}
-                if(handTranslation.isSelected()){
+		if(middleRingAngle.isSelected()){
 			featureSelected.add(14);
+			counter++;
+		}
+		if(ringPinkyAngle.isSelected()){
+			featureSelected.add(15);
+			counter++;
+		}
+		if(thumbPalmNormal.isSelected()){
+			featureSelected.add(16);
+			counter++;
+		}
+                if(indexPalmNormal.isSelected()){
+			featureSelected.add(17);
+			counter++;
+		}
+                if(middlePalmNormal.isSelected()){
+			featureSelected.add(18);
+			counter++;
+		}
+                if(ringPalmNormal.isSelected()){
+			featureSelected.add(19);
+			counter++;
+		}
+                if(pinkyPalmNormal.isSelected()){
+			featureSelected.add(20);
+			counter++;
+		}
+                if(handRotationAngel.isSelected()){
+			featureSelected.add(21);
+			counter++;
+		}
+                if(handTranslation.isSelected()){
+			featureSelected.add(22);
+			counter++;
+		}
+                if(dotProduct.isSelected()){
+			featureSelected.add(23);
 			counter++;
 		}
 		if(counter ==0){

@@ -1,6 +1,7 @@
 package recognitionModule;
 
 import be.ac.ulg.montefiore.run.jahmm.ForwardBackwardCalculator;
+import be.ac.ulg.montefiore.run.jahmm.ForwardBackwardScaledCalculator;
 import be.ac.ulg.montefiore.run.jahmm.Hmm;
 import be.ac.ulg.montefiore.run.jahmm.ObservationVector;
 import be.ac.ulg.montefiore.run.jahmm.io.HmmReader;
@@ -25,7 +26,7 @@ import util.ObservationSequence;
  * @author tengfei
  */
 
-public class GestureRecognition {
+public class TransitionRecognition {
 	
 	private JTextArea dataAnalysis;
 	private JLabel resultLabel;
@@ -40,7 +41,7 @@ public class GestureRecognition {
 	//private List<ObservationVector> modifiedSeq= new ArrayList<ObservationVector>();
 	
 	
-	public GestureRecognition(ObservationSequence OSS,JTextArea dataAnalysis, JLabel resultLabel, String workDir, List<Integer> featureVectorUsed){
+	public TransitionRecognition(ObservationSequence OSS,JTextArea dataAnalysis, JLabel resultLabel, String workDir, List<Integer> featureVectorUsed){
 		this.OS =OSS;
                 this.workDir = workDir;
                 this.featureVectorUsed =featureVectorUsed;
@@ -48,7 +49,7 @@ public class GestureRecognition {
 		this.resultLabel = resultLabel;
 		dataAnalysis.setText("");
 	}
-	public GestureRecognition(List<ObservationVector> sequence,boolean isContinuous, String workDir,List<Integer> featureVectorUsed){
+	public TransitionRecognition(List<ObservationVector> sequence,boolean isContinuous, String workDir,List<Integer> featureVectorUsed){
 	
             this.sequence =sequence;
             this.workDir = workDir;
@@ -163,15 +164,13 @@ public class GestureRecognition {
 					      Reader reader = new FileReader (workDir+"/hmmdata/"+modelNames[i]+".hmm");
 					      Hmm <ObservationVector> hmm = HmmReader.read(reader, new OpdfMultiGaussianMixtureReader());
 					      
-					       //ForwardBackwardScaledCalculator forwardBackward = new ForwardBackwardScaledCalculator(OS.observationSequence,hmm);
-					    	  //ForwardBackwardScaledCalculator forwardBackward = new ForwardBackwardScaledCalculator(testSeq.get(2),hmm);
-					      ForwardBackwardCalculator 
-					 
-					    	  forwardBackward  = new ForwardBackwardCalculator(seq,hmm);
+					       
+					      //ForwardBackwardScaledCalculator forwardBackward = new ForwardBackwardScaledCalculator(seq,hmm);
+					     ForwardBackwardCalculator forwardBackward  = new ForwardBackwardCalculator(seq,hmm);
 					      
 				
-						      double probability = forwardBackward.probability();
-					     // double probability = hmm.probability(OS.observationSequence);
+					     double probability = forwardBackward.probability();
+					      //double probability =Math.abs(forwardBackward.lnProbability()) ;
 					 
 					          reader.close();
 					      
@@ -179,10 +178,11 @@ public class GestureRecognition {
 				
 					          dataAnalysis.append(modelNames[i]+"............"+probability+"\n");
 					          //dataAnalysis.setText(modelNames[i]+"............"+probability);
-					          if(probability >tempProbability){
-					    	      bestFitModel = modelNames[i];
+                                                  
+                                                 if(probability >tempProbability){
+                                                      bestFitModel = modelNames[i];
 					    	      tempProbability = probability;
-					          }
+                                                  }
 					      }catch(Exception e){
 					    	  //e.printStackTrace();
 					    	 continue;

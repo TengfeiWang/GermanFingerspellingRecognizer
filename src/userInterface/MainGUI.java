@@ -60,7 +60,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
 import javax.swing.WindowConstants;
-import recognitionModule.GestureRecognition;
+import recognitionModule.TransitionRecognition;
+import recognitionModule.GestureTracker;
 import recognitionModule.ModelsEvaluation;
 import recognitionModule.RecognitionDataCollection;
 import util.CreatWorkSpace;
@@ -114,6 +115,8 @@ public class MainGUI extends javax.swing.JFrame {
 	private JButton seeFV;
 	private JMenuItem featureVector;
 	private JMenu configMenu;
+        private JMenu gestureRecognition;
+        private JMenuItem gesture;
 	private JButton viewModels;
 	private JMenuItem exitMenu;
 	private JMenuItem aboutMenu;
@@ -160,18 +163,31 @@ public class MainGUI extends javax.swing.JFrame {
         {
         	allFeatureVector.put(1, "Thumb to Hand Center");
         	allFeatureVector.put(2, "Index to Hand Center");
-        	allFeatureVector.put(3, "Middle to Hand Center");
-        	allFeatureVector.put(4, "Ring to Hand Center");
-        	allFeatureVector.put(5, "Pinkey to Hand Center");
-        	allFeatureVector.put(6, "Thumb to Index");
-        	allFeatureVector.put(7, "Thumb to Middle");
-        	allFeatureVector.put(8, "Index to Middle");
-        	allFeatureVector.put(9, "Thumb to Ring");
-        	allFeatureVector.put(10,"Thumb to Pinky" );
-        	allFeatureVector.put(11,"Pinky to Ring" );
-        	allFeatureVector.put(12,"Middle to Ring" );
-                allFeatureVector.put(13,"Hand Rotation Angel" );
-                allFeatureVector.put(14,"Hand Position Change" );
+                allFeatureVector.put(3, "Middle to hand center");
+                allFeatureVector.put(4, "Ring to hand center");
+                allFeatureVector.put(5, "Pinkey to Hand Center");
+                allFeatureVector.put(6, "Thumb to Index");
+                allFeatureVector.put(7, "Index to Middle");
+                allFeatureVector.put(8, "Middle to Ring");
+                allFeatureVector.put(9, "Ring to Pinky");
+                
+                
+        	allFeatureVector.put(10, "Extended finger count");
+           
+        	allFeatureVector.put(11, "Index Openness");
+        	
+        	allFeatureVector.put(12, "Thumb Index Angle");
+        	allFeatureVector.put(13, "Index Middle Angle");
+        	allFeatureVector.put(14, "Middle Ring Angle");
+        	allFeatureVector.put(15, "Ring Pinky Angke");
+        	allFeatureVector.put(16, "Thumb Palmnormal Angle" );
+                allFeatureVector.put(17, "Index Palmnormal Angle" );
+                allFeatureVector.put(18, "Middle Palmnormal Angle" );
+                allFeatureVector.put(19, "Ring Palmnormal Angle" );
+                allFeatureVector.put(20, "Pinky Palmnormal Angle" );
+                allFeatureVector.put(21, "Hand Rotation Angel");
+                allFeatureVector.put(22, "Hand Position Change Magnitude");
+                allFeatureVector.put(23, "Dot Product");
         	
         }
     };
@@ -191,6 +207,15 @@ public class MainGUI extends javax.swing.JFrame {
         featureVectorUsed.add(12);
         featureVectorUsed.add(13);
         featureVectorUsed.add(14);
+        featureVectorUsed.add(15);
+        featureVectorUsed.add(16);
+        featureVectorUsed.add(17);
+        featureVectorUsed.add(18);
+        featureVectorUsed.add(19);
+        featureVectorUsed.add(20);
+        featureVectorUsed.add(21);
+        featureVectorUsed.add(22);
+        featureVectorUsed.add(23);
     	
     }
       private List<Integer> allFeatures=new ArrayList();{
@@ -208,6 +233,15 @@ public class MainGUI extends javax.swing.JFrame {
         allFeatures.add(12);
         allFeatures.add(13);
         allFeatures.add(14);
+        allFeatures.add(15);
+        allFeatures.add(16);
+        allFeatures.add(17);
+        allFeatures.add(18);
+        allFeatures.add(19);
+        allFeatures.add(20);
+        allFeatures.add(21);
+        allFeatures.add(22);
+        allFeatures.add(23);
     	
     }
    
@@ -609,6 +643,21 @@ public class MainGUI extends javax.swing.JFrame {
 							});
 						}
 					}
+                                        {
+                                            gestureRecognition = new JMenu();
+                                            gestureRecognition.setText("Gesture");
+                                            gesture = new JMenuItem();
+                                            gestureRecognition.add(gesture);
+                                            jMenuBar.add(gestureRecognition);
+                                            gesture.setText("GestureRecognition");
+                                            gesture.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent evt) {
+								//System.out.println("aboutMenu.actionPerformed, event="+evt);
+								//TODO add your code for aboutMenu.actionPerformed
+								GestureTracker gt = new GestureTracker();
+							}
+						});
+                                        }
 					jMenuBar.add(Box.createHorizontalGlue());
 					Help = new JMenu();
 					jMenuBar.add(Help);
@@ -1226,7 +1275,7 @@ public class MainGUI extends javax.swing.JFrame {
             	recognitionPanel.setVisible(true);
    	    	    observationSequence=OS.observationSequence;
    	    	    System.out.println("hi"+observationSequence);
-   	    	    GestureRecognition gestureRecognition = new GestureRecognition(OS,dataAnalysis,resultLabel);
+   	    	    TransitionRecognition gestureRecognition = new TransitionRecognition(OS,dataAnalysis,resultLabel);
    	    	    gestureRecognition.showResult();*/
             	
             	
@@ -1244,13 +1293,13 @@ public class MainGUI extends javax.swing.JFrame {
   	        	  JOptionPane.showMessageDialog(null, "Please put you hand in front of the leap", "Error", JOptionPane.ERROR_MESSAGE);
   	            }else{
             	  
-        	    GestureRecognition gestureRecognition = new GestureRecognition(OS,dataAnalysis,resultLabel,workDir,featureVectorUsed);
+        	    TransitionRecognition gestureRecognition = new TransitionRecognition(OS,dataAnalysis,resultLabel,workDir,featureVectorUsed);
         	    gestureRecognition.showResult();
   	            }
             	
             	//for test only
             	/*ObservationSequence OS = new ObservationSequence();
-            	 GestureRecognition gestureRecognition = new GestureRecognition(OS,dataAnalysis,resultLabel);
+            	 TransitionRecognition gestureRecognition = new TransitionRecognition(OS,dataAnalysis,resultLabel);
          	    gestureRecognition.showResult();*/
             	
             	
